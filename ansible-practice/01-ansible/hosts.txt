@@ -1,0 +1,23 @@
+vm1 ansible_port=5000 ansible_user=root
+vm2 ansible_port=5001 ansible_user=root
+vm3 ansible_port=5002 ansible_user=root
+
+[Principal]
+vm1 ansible_port=5000 ansible_user=root
+
+[Secundaria] 
+vm2 ansible_port=5001 ansible_user=root
+
+[Tercera] 
+vm3 ansible_port=5002 ansible_user=root
+
+[allfait:children]
+Principal
+
+[allfait2:children]
+Secundaria
+Tercera
+
+[httpd:children]
+Principal
+Secundaria

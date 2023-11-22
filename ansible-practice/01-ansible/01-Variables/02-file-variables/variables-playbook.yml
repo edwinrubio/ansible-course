@@ -1,0 +1,11 @@
+---
+- name: trabajando con archivos de variables
+  hosts: vm1
+  vars_files: myvars.yml
+  tasks: 
+    - name: Mostrar el contenido de la lista de puertos
+      debug:
+        msg: SSH ports {{ port_nums }}
+    - name: Mostrar el UID de Bob
+      debug:
+        msg: Uid de Bob {{ users.bob.uid }}

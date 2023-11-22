@@ -1,0 +1,8 @@
+---
+- name: Usando el condicional when con facts
+  hosts: all
+  tasks:  
+    - name: Detectar si es un servidor Ubuntu
+      debug: 
+        msg: "Este es un servidor de Ubuntu"
+      when: ansible_facts['distribution'] == "Ubuntu"

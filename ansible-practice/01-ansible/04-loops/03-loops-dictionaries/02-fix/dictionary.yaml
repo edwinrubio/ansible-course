@@ -1,0 +1,13 @@
+---
+- name: Vamos a listar un diccionario
+  hosts: all  
+  vars:
+    employee:
+      name: "Carlos Camargo"
+      title: "Ingeniero DevOps"
+      company: "AllfaIT"
+  tasks:
+    - name: Imprimir el diccionario de employee
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ employee | dict2items }}"

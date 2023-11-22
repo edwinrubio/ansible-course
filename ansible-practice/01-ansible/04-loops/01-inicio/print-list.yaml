@@ -1,0 +1,10 @@
+---
+- name: Imprimir lista
+  hosts: all
+  vars:
+    lista_numeros: [2, 3, 4, 5, 7]
+  tasks:
+    - name: Muestrame los numeros de lista_numeroslista_numeros
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ lista_numeros }}"

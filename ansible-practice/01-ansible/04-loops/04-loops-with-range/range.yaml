@@ -1,0 +1,27 @@
+---
+- name: Imprimir lista con rango de valores
+  hosts: vm1
+  tasks:
+    - name: Muestrame los 9 primeros digitos
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ range(10) | list }}"
+    - name: Rango diferente a 0
+      debug:
+        msg: "{{ item }}"
+      loop: "{{ range(5,15) | list }}"
+    - name: Definiendo saltos de a 2 en su conteo
+      debug:
+        msg: 192.168.1.{{ item }}
+      loop: "{{ range(0,256,2) | list }}"
+    - name: Conteo de 10 segundos
+      debug:
+        msg: "Quedan {{ 10 - item }} segundos"
+      loop: "{{ range(10) | list }}"
+      loop_control:
+        pause: 1                                      #Agregamos una pausa en segundo entre cada iteracion
+    - name: Mostrar un Hola mundo
+      debug:
+        msg: "Hola mundo"
+
+

@@ -1,0 +1,10 @@
+---
+- name: Usando el condicional when con facts
+  hosts: all
+  tasks:  
+    - name: Detectar si es un servidor Ubuntu
+      debug: 
+        msg: "El servidor se esta reiniciando"          
+      when: >   #Podemos haccer uso del and o del or
+        ansible_facts['distribution'] == 'Ubuntu' and       
+        ansible_facts['distribution_major_version'] == "16"

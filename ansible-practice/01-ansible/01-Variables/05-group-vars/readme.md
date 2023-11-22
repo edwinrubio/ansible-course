@@ -1,0 +1,1 @@
+# En esta implementacion lo que se hace es que dentro de una carpeta con el nombre especifico "group_vars" se guardan archivos con el nombre de grupos que se han definido dentro del inventario, y asi cuando se ejecuten va a buscar esos grupos y aplicar las configuraciones ahi descritas

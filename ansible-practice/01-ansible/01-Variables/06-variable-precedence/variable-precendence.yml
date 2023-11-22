@@ -1,0 +1,9 @@
+---
+- name: Entendiendo la precendencia de variables
+  hosts: vm1
+  vars:
+    fav_distro: Ubuntu
+  tasks:
+    - name: Muestra la variable fav_distro
+      ansible.builtin.debug:
+        msg: Mi distribucion favorita es {{ fav_distro }}

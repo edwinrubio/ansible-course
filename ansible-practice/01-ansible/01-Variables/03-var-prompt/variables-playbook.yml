@@ -1,0 +1,11 @@
+---
+- name: Querido usuario
+  hosts: vm1
+  vars_prompt:
+    - name: username
+      prompt: Whats your name
+      private: no
+  tasks:
+    - name: Querido usuario
+      debug:
+        msg: Hello {{ username }}

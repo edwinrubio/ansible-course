@@ -1,0 +1,13 @@
+---
+- name: Register playbook
+  hosts: vm1
+  tasks:
+    - name: Ejecutar el comando
+      command: hostname
+      register: hostname_server
+    - name: Inspecccionar la variable hostname_server
+      debug:  
+        var: hostname_server
+    - name: Mostrar la variable hostname_server
+      debug:
+        msg: "{{ hostname_server.stdout }}"

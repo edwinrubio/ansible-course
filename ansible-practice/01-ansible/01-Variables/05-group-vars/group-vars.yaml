@@ -1,0 +1,8 @@
+---
+- name: Setear motd en todos los nodos
+  hosts: all
+  tasks:
+    - name: Set motd = value of message variable.
+      copy:
+        content: "{{ pkg }}"
+        dest: /etc/motd

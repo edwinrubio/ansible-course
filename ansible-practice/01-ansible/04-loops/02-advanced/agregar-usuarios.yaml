@@ -1,0 +1,17 @@
+---
+- name: Agregar nuevos usuarios al sistema
+  hosts: all
+  vars:
+    dbusuarios: 
+      - username: pablito
+        pass: root
+      - username: carlos
+        pass: root
+      - username: camilo
+        pass: root
+  tasks:
+    - name: Add users
+      user:
+        name: "{{ item.username }}"
+        password: "{{ item.pass | password_hash('sha512') }}"
+      loop: "{{ dbusuarios }}"

@@ -1,0 +1,12 @@
+---
+port_nums: [22,34,22,65,44,64,27]
+
+users:
+  bob:
+    username: bob
+    uid: 1122
+    shell: /bin/shell
+  lisa:
+    username: lisa
+    uid: 4344
+    shell: /bin/sh

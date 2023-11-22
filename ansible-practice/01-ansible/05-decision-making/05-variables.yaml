@@ -1,0 +1,16 @@
+---
+- name:
+  hosts: vm1
+  vars:
+    weekend: true
+    on_call: "no"
+    car: 
+  tasks:
+    - name: Se ejecuta si "weekend" es true y "on_call" is false
+      debug:
+        msg: "Eres libre"
+      when: weekend and not on_call | bool    #not es lo mismo que "!" y el bool pasa los valores del no a booleano false
+    - name: Run only if you got a car
+      debug:
+        msg: "Nos vamos de viaje"
+      when: car is defined

@@ -1,0 +1,11 @@
+---
+- name: Usando el condicional when con facts
+  hosts: all
+  tasks:  
+    - name: Guarda el contenido de /etc/os-release
+      command:  cat /etc/os-release
+      register: os_release
+    - name: Detectar si es un servidor Ubuntu
+      debug: 
+        msg: "Esta corriendo Ubuntu"
+      when: os_release.stdout.find('Ubuntu') != -1

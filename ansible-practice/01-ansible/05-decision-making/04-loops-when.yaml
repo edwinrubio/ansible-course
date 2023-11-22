@@ -1,0 +1,9 @@
+---
+- name: Imprecion del algunos numeros
+  hosts: vm1
+  tasks:  
+    - name: Imprimir algunos numeros pares
+      debug: 
+        msg: "{{ item }} es numero par"          
+      loop: "{{ range(1,11) | list }}"
+      when: item % 2 == 0

@@ -1,0 +1,21 @@
+---
+- name: Control Change
+  hosts: vm1
+  tasks:
+    - name: Run the date command
+      command: date
+      notify: handler1
+      changed_when: false
+
+    - name: Run the uptime command
+      command: uptime
+
+  handlers:
+     - name: handler1
+       debug:
+         msg: "I can handle dates"
+
+# Esto es útil cuando tienes tareas que se ejecutan regularmente como parte de la rutina 
+# de mantenimiento, pero no deseas que se informen como "cambiadas" cada vez que se ejecutan.
+# Puedes utilizar changed_when: false para evitar que estas tareas aparezcan en la salida como "cambiadas",
+# lo que hace que el análisis de la salida sea más claro y preciso.

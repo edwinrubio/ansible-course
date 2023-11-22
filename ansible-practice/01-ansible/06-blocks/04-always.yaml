@@ -1,0 +1,21 @@
+---
+- name: Este es el bloque del rescue
+  hosts: vm1
+  tasks:
+    - name: Handling error example
+      block:
+        - name: ejecutar un comando
+          command: uptime
+        - name: Ejecutar un comando erroneo
+          command: no sirve
+        - name: Esto no ejecutara
+          debug:
+            msg: "Esto no ejecutara jamas"
+      rescue:
+          - name: El catch de ansible
+            debug:
+              msg: "Aqui pongo lo que va a salvar la ejecucion"
+      always:
+        - name: This will always run
+          debug:
+            msg: "Este bloque es como el 'final' siempre se ejecutara pase lo que pase"

@@ -1,0 +1,14 @@
+---
+- name: Adding custom facts to node1
+  hosts: vm1
+  tasks:
+    - name: Creacion de la carpeta facts.d
+      file:
+        path: /etc/ansible/facts.d
+        owner: root
+        mode: 775
+        state: directory
+    - name: Copiado de  prueba.fact en la carpeta de facts.d 
+      copy:
+        src: prueba.fact
+        dest: /etc/ansible/facts.d

@@ -1,0 +1,16 @@
+---
+  - name: Muestrame los facts que te voy a pasar
+    hosts: vm1
+    gather_facts: yes
+    tasks:
+      - name: Muestrame la arquitectura
+        debug:
+          msg: La arquitectura es {{ ansible_userspace_architecture }}
+
+      - name: Muestrame el fqdn 
+        debug:
+          msg: FQDN es {{ ansible_fqdn }}
+
+      - name: Muestrame la distribucionde SO
+        debug:
+          msg: La distribucion de sistema operativo {{ ansible_distribution }}

@@ -1,0 +1,17 @@
+---
+- name: Simple Handler example
+  hosts: vm1
+  tasks:
+    - name: Crear grupo de ingenieros
+      group:
+        name: ingenieros
+      notify: add edwin
+    - name: Solo es otra tarea aleatoria
+      debug:
+        msg: " Hola todos"
+  handlers:
+    - name: add edwin 
+      user:
+        name: edwin
+        groups: ingenieros
+        append: yes

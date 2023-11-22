@@ -1,0 +1,18 @@
+---
+- name: Este es el bloque del rescue
+  hosts: vm1
+  tasks:
+    - name: Handling error example
+      block:
+        - name: ejecutar un comando
+          command: uptime
+        - name: Ejecutar un comando erroneo
+          command: no sirve
+          ignore_errors: yes
+        - name: Esto si se ejecutara
+          debug:
+            msg: "Esto si se ejecutara"
+      rescue:
+          - name: El catch de ansible
+            debug:
+              msg: "Aqui pongo lo que va a salvar la ejecucion" # En este caso no se vio el rescue porque se ignoraron los errores
